@@ -1,0 +1,43 @@
+# Enable backend
+backend = "glx";
+
+# Enable shadows (optional)
+shadow = true;
+shadow-radius = 12;
+shadow-offset-x = -15;
+shadow-offset-y = -15;
+shadow-opacity = 0.4;
+
+# Enable transparency (required for blur to work)
+opacity-rule = [
+  "90:class_g = 'Alacritty'",
+  "90:class_g = 'Kitty'",
+];
+
+# Enable blur
+blur:
+{
+  method = "dual_kawase";
+  strength = 7;
+  deviation = 1.0;
+  kernel = "7x7gaussian";
+};
+
+blur-background = true;
+
+# Exclude certain windows from being blurred
+blur-background-exclude = [
+  "window_type = 'dock'",
+  "window_type = 'desktop'",
+  "class_g = 'slop'",
+  "class_g = 'i3-frame'",
+  "_GTK_FRAME_EXTENTS@:c"
+];
+
+# vsync helps reduce tearing
+vsync = true;
+
+# Optional: fade in/out of windows
+fading = true;
+fade-in-step = 0.03;
+fade-out-step = 0.03;

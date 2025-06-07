@@ -1,0 +1,348 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #50000000
+background-alt = #3306080a
+foreground = #FFFFFF
+primary = #7c81ff
+red = #FF2745
+blue = #0c002e
+red-prime = #FF6868
+secondary = #8ABEB7
+alert = #FF2745
+disabled = #707880
+
+[bar/bar2]
+monitor = HDMI-1
+width = 100%
+height = 25px
+radius = 3pt
+offset-y = 30%
+bottom = false
+; dpi = 96
+
+background = ${colors.blue}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+border-size = 10px
+border-color = ${colors.blue}
+
+padding-left = 0
+padding-right = 3
+
+module-margin-left = 1
+module-margin-right = 1
+
+separator-foreground = ${colors.disabled}
+
+font-0 = TerminessNerdFont-Regular:size=12;2
+
+modules-left = xworkspaces xwindow
+modules-right = date wlan battery pulseaudio
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+; wm-restack = generic
+; wm-restack = bspwm
+wm-restack = i3
+override-redirect = false
+
+[bar/bar1]
+monitor = eDP-1
+width = 100%
+height = 25px
+radius = 3pt
+offset-y = 30%
+bottom = false
+; dpi = 96
+
+background = ${colors.blue}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+border-size = 10px
+border-color = ${colors.blue}
+
+padding-left = 0
+padding-right = 3
+
+module-margin-left = 1
+module-margin-right = 1
+
+separator-foreground = ${colors.disabled}
+
+font-0 = TerminessNerdFont-Regular:size=12;2
+
+modules-left = xworkspaces xwindow
+modules-right = date wlan battery pulseaudio
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+; wm-restack = generic
+; wm-restack = bspwm
+wm-restack = i3
+override-redirect = false
+
+[module/systray]
+type = internal/tray
+
+format-margin = 8pt
+tray-spacing = 16pt
+
+[module/xworkspaces]
+type = internal/xworkspaces
+icon-0 = 1;I
+icon-1 = 2;II
+icon-2 = 3;III
+icon-3 = 4;IV
+icon-4 = 5;V
+icon-5 = 6;VI
+icon-6 = 7;VII
+icon-7 = 8;VIII
+icon-8 = 9;IX
+icon-9 = 10;X
+
+icon-10 = 11;1
+icon-11 = 12;2
+icon-12 = 13;3
+icon-13 = 14;4
+icon-14 = 15;5
+icon-default = ♟
+
+label-active = %icon%
+label-active-background = ${colors.red-prime}
+label-active-padding = 1
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-background = ${colors.red}
+
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-padding = 1
+label-empty-background = ${colors.red}
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:90:...%
+label-active-font = 1
+
+[module/wlan]
+type = internal/network
+
+interface = wlp2s0
+
+interval = 3.0
+
+format-connected = <ramp-signal>  <label-connected>
+label-connected = %essid%
+
+;format-disconnected =
+
+format-disconnected = <label-disconnected>
+
+;format-disconnected-underline = ${self.format-connected-underline}
+
+;label-disconnected = %ifname% disconnected
+
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-prefix = "󰕾 "
+format-volume-prefix-foreground = ${colors.primary}
+format-volume = <label-volume>
+
+label-volume = %percentage%%
+
+label-muted = "muted"
+label-muted-foreground = ${colors.disabled}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout = %layout%
+label-layout-foreground = ${colors.primary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.secondary}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "RAM "
+format-prefix-foreground = ${colors.primary}
+label = %percentage_used:2%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format-prefix-foreground = ${colors.primary}
+label = %percentage:2%%
+
+;[module/eth]
+;inherit = network-base
+;interface-type = wired
+;label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =   %H:%M
+date-alt = %Y-%m-%d %H:%M:%S
+
+label = %date%
+label-foreground = ${colors.white}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+low-at = 30
+battery = BAT0
+adapter = AC0
+poll-interval = 5
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+;time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Format used when battery level drops to low-at
+; If not defined, format-discharging is used instead.
+; Available tags:
+;   <label-low>
+;   <animation-low>
+;   <bar-capacity>
+;   <ramp-capacity>
+; New in version 3.6.0
+;format-low = <label-low> <animation-low>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = 󰁹 %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+; New in version 3.6.0
+label-low = BATTERY LOW
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+; Only applies if <animation-low> is used
+; New in version 3.6.0
+animation-low-0 = !
+animation-low-1 = 
+animation-low-framerate = 200
+
+[global/wm]
+margin-bottom = 0
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+
+; vim:ft=dosini
