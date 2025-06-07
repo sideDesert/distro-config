@@ -3,7 +3,7 @@ font_size 14
 window_margin_width 10
 single_window_margin_width 0
 # active_border_color #000120
-background_opacity 0.9
+background_opacity 1
 background_blur 32
 
 
