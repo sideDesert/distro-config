@@ -15,15 +15,21 @@ bind -n C-p previous-window
 bind -n C-n next-window
 
 set-option -g status-position top
-# List of plugins
+# ----- List of plugins -----
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'catppuccin/tmux'
 
+# Theme
+set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @plugin 'tmux-plugins/tmux-online-status'
 
+# TMUX NVIM Navigation
 set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# TMUX Resurrect 
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-capture-pane-contents 'on'
 
 # Configure Catppuccin
 set -g @catppuccin_flavor "macchiato"

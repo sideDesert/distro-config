@@ -17,8 +17,12 @@ link() {
 
 link "${CWD}/tmux/config" ~/.tmux.conf
 link "${CWD}/i3/config" ~/.config/i3/config
-link "${CWD}/picom/config" ~/.config/picom
+link "${CWD}/picom/config" ~/.config/picom.conf
 link "${CWD}/zsh/config" ~/.zshrc
 link "${CWD}/nvim" ~/.config/nvim
 link "${CWD}/kitty" ~/.config/kitty
 link "${CWD}/polybar" ~/.config/polybar
+link "${CWD}/waybar" ~/.config/waybar
+link "${CWD}/foot" ~/.config/foot
+link "${CWD}/hypr" ~/.config/hypr
+link "${CWD}/wofi" ~/.config/wofi

@@ -1,0 +1,81 @@
+{
+  "margin-top": 5,
+  "margin-left": 10,
+  "margin-right": 10,
+  "height": 33,
+
+  "modules-left": [
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "temperature",
+    "battery",
+    "clock"
+  ],
+  "pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "Muted ",
+		"format-icons": {
+			"headphones": "",
+			"default": ["", ""]
+		}
+	},
+  "network": {
+    "exec": "nmcli -t -f ACTIVE,SSID dev wifi | grep '^yes' | cut -d: -f2",
+    "interval": 10,
+    "format": " {}",
+    "format-disconnected": "No Signal"
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "rewrite": {
+      "": "sidddarth@G14"
+    },
+    "separate-outputs": true
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": " "
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5]
+    }
+  },
+
+  "clock": {
+    "format": "{:%a, %b %d | %I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["","",""]
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  }
+}
