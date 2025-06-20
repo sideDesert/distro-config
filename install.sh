@@ -15,6 +15,7 @@ link() {
 	ln -s "$target" "$linkname"
 }
 
+link "${CWD}/scripts" ~/scripts
 link "${CWD}/tmux/config" ~/.tmux.conf
 link "${CWD}/i3/config" ~/.config/i3/config
 link "${CWD}/picom/config" ~/.config/picom.conf

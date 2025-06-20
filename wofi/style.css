@@ -1,27 +1,79 @@
-window {
-    background-color: #1e1e2e;
-    color: #cdd6f4;
-    font-family: "JetBrains Mono Nerd Font";
-    font-weight: 700;
-    font-size: 16px;
+@define-color rosewater #f4dbd6;
+@define-color flamingo #f0c6c6;
+@define-color pink #f5bde6;
+@define-color mauve #c6a0f6;
+@define-color red #ed8796;
+@define-color maroon #ee99a0;
+@define-color peach #f5a97f;
+@define-color yellow #eed49f;
+@define-color green #a6da95;
+@define-color teal #8bd5ca;
+@define-color sky #91d7e3;
+@define-color sapphire #7dc4e4;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color text #cad3f5;
+@define-color subtext1 #b8c0e0;
+@define-color subtext0 #a5adcb;
+@define-color overlay2 #939ab7;
+@define-color overlay1 #8087a2;
+@define-color overlay0 #6e738d;
+@define-color surface2 #5b6078;
+@define-color surface1 #494d64;
+@define-color surface0 #363a4f;
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+
+*{
+  font-family: "JetBrains Mono Nerd Font";
 }
 
-#entry {
-    padding: 10px;
-    border: none;
-    background-color: #313244;
-    color: #cdd6f4;
-}
-
-#entry:selected {
-    background-color: #89b4fa;
-    color: #1e1e2e;
+window{
+  /* background-color: #7C818C; */
+  border-radius: 10px;
+  opacity: 1;
+  border:  0px;
+  font-size: 18px;
 }
 
 #input {
-    margin: 10px;
-    border-radius: 8px;
-    padding: 5px 10px;
-    background-color: #45475a;
-    color: white;
+	border-radius: 10px;
+  border:  1px;
+  padding: 10px;
+  margin: 0px;
+  font-size: 20px;
+	color: @lavender;
+	background-color: @mantle;
 }
+
+#inner-box {
+	margin: 0px;
+}
+
+#outer-box {
+	margin: 0px;
+  border-radius: 10px;
+  background-color: @crust;
+  color: @text;
+}
+
+#selected {
+  color: @lavender;
+  background-color: @surface0;
+  margin: 0;
+  padding: 5px 0;
+  border-radius: 6px;
+}
+
+#entry {
+  margin: 0px 5px;
+  background-color: transparent;
+}
+
+#text {
+  margin: 0px;
+  background-color: transparent; /* ensure it doesn't override #selected */
+  padding-left:8px;
+}
+

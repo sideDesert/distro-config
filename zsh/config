@@ -3,16 +3,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if uwsm check may-start && uwsm select; then
-  exec uwsm start default
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export WALLPAPER_DIR="$HOME/Pictures/wallpaper/static"
+export WALLPAPER_DIR="$HOME/Pictures/wallpaper/live"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -47,6 +43,9 @@ PATH=~/.console-ninja/.bin:$PATH
 
 alias 'kill-wallpaper'='killall xwinwrap'
 alias ic='kitty +kitten icat'
+alias start='waybar & disown'
+
+alias fl='nemo . >/dev/null 2>&1 & disown'
 
 if [ -n "$WAYLAND_DISPLAY" ]; then 
   alias wallpaper="~/scripts/swww-random.sh \"$WALLPAPER_DIR\""
@@ -57,6 +56,9 @@ else
   }
 fi
 
+batman() {
+  man "$1" | col -bx | bat --language=man
+}
 
 cursor() {
     nohup ~/Applications/cursor.appimage "$@" & disown && exit

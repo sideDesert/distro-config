@@ -29,7 +29,7 @@
   "network": {
     "exec": "nmcli -t -f ACTIVE,SSID dev wifi | grep '^yes' | cut -d: -f2",
     "interval": 10,
-    "format": " {}",
+    "format": "  {}",
     "format-disconnected": "No Signal"
   },
 
