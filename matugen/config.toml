@@ -1,0 +1,6 @@
+[config]
+
+[templates.pywalfox]
+input_path = '~/config/matugen/template-pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'

@@ -27,3 +27,5 @@ link "${CWD}/waybar" ~/.config/waybar
 link "${CWD}/foot" ~/.config/foot
 link "${CWD}/hypr" ~/.config/hypr
 link "${CWD}/wofi" ~/.config/wofi
+link "${CWD}/waypaper/config" ~/.config/waypaper/config.ini
+link "${CWD}/matugen" ~/.config/matugen
