@@ -29,3 +29,4 @@ link "${CWD}/hypr" ~/.config/hypr
 link "${CWD}/wofi" ~/.config/wofi
 link "${CWD}/waypaper/config" ~/.config/waypaper/config.ini
 link "${CWD}/matugen" ~/.config/matugen
+link "${CWD}/lf" ~/.config/lf

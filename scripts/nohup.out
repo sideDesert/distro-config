@@ -1,0 +1,7 @@
+         0ms [INFO]  selected pixel format: Xbgr
+       171ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+       284ms [INFO]  BumpPool with: 2 buffers. Size: 16200Kb
+       297ms [INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+       410ms [INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+      1338ms [INFO]  Removed socket at /run/user/1000/swww-wayland-1.sock
+      1338ms [INFO]  Goodbye!

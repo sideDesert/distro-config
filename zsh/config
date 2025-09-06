@@ -47,6 +47,8 @@ alias ic='kitty +kitten icat'
 alias start='waybar & disown'
 
 alias fl='nemo . >/dev/null 2>&1 & disown'
+alias rss='systemctl --user restart xdg-desktop-portal-hyprland.service && systemctl --user restart xdg-desktop-portal.service'
+alias esh='nvim ~/.zshrc'
 
 if [ -n "$WAYLAND_DISPLAY" ]; then 
   if [[ $(cat "/sys/class/power_supply/AC0/online") == 1 ]]; then
@@ -65,9 +67,12 @@ batman() {
   man "$1" | col -bx | bat --language=man
 }
 
-cursor() {
-    nohup ~/Applications/cursor.appimage "$@" & disown && exit
+
+alias cursor='~/Applications/cursor.AppImage --no-sandbox'
+host() {
+  ngrok http "http://localhost:$1"
 }
+
 
 polybar(){
  /home/siddarth/.config/polybar/launch.sh
@@ -122,7 +127,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
 # Only auto-start Hyprland if we're on TTY1 and not already inside Wayland
 if [ "$(tty)" = "/dev/tty1" ] && [ -z "$WAYLAND_DISPLAY" ]; then
@@ -134,3 +138,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export GTK_THEME=Adwaita:dark
+export PATH="$HOME/.local/bin:$PATH"
+export OPENAI_KEY=
+export PATH=$PATH:/usr/local/bin
